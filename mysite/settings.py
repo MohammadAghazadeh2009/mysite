@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'multi_captcha_admin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,8 +47,17 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'robots',
-    "debug_toolbar"
+    "debug_toolbar",
+    "taggit",
+    'django_summernote',
+    'captcha',
+    'accounts'
 ]
+
+MULTI_CAPTCHA_ADMIN = {
+    'engine': 'simple-captcha',
+}
+
 
 SITE_ID = 2
 
@@ -150,3 +160,28 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
+SUMMERNOTE_CONFIG = {
+    'iframe': True,
+    'summernote': {
+        'width': '500px',     # set editor width
+        'height': '480', 
+        'styleTags': ['p', 'blockquote', 'pre', 'h1', 'h2', 'h3'],    # set editor height
+        'toolbar': [
+            ['style', ['style']],
+            ['font', ['bold', 'italic', 'underline', 'clear']],
+            ['fontname', ['fontname']],
+            ['fontsize', ['fontsize']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['height', ['height']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'codeview']],
+        ],
+        'styleTags': ['p'],
+    },
+    'attachment_require_authentication': True,
+}
+
+X_FRAME_OPTIONS = "SAMEORIGIN"
+SUMMERNOTE_THEME = 'bs4'
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000']
