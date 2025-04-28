@@ -35,6 +35,7 @@ urlpatterns = [
     path("", include("website.urls")),
     path("blog/", include("blog.urls")),
     path('accounts/', include('accounts.urls')),
+    path('', include('django.contrib.auth.urls')),
     path(
         "sitemap.xml",
         sitemap,
